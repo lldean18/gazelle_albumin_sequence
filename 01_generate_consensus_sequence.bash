@@ -26,9 +26,9 @@ source $HOME/.bash_profile
 conda activate samtools1.22
 
 # generate the concensus sequence
-samtools mpileup -uf $ref $bam | bcftools call -c - | vcfutils.pl vcf2fq > ${bam%.*}_consensus.fq
+bcftools mpileup -Ou --fasta-ref $ref $bam | bcftools call --consensus-caller - | vcfutils.pl vcf2fq - > ${bam%.*}_consensus.fq
 seqtk seq -a ${bam%.*}_consensus.fq > ${bam%.*}_consensus.fa
-rm ${bam%.*}_consensus.fq
+#rm ${bam%.*}_consensus.fq
 
 
 # deactivate software
