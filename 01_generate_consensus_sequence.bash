@@ -19,6 +19,8 @@ wkdir=/gpfs01/home/mbzlld/data/gazelle
 ref=$wkdir/CAKJTW01.fasta
 bam=$wkdir/ERR7570018.bam
 
+cd $wkdir
+
 # activate software
 source $HOME/.bash_profile
 #conda create --name samtools1.22 bioconda::samtools=1.22 bioconda::bcftools=1.22 -y
@@ -26,9 +28,14 @@ source $HOME/.bash_profile
 conda activate samtools1.22
 
 # generate the concensus sequence
-bcftools mpileup -Ou --fasta-ref $ref $bam | bcftools call --consensus-caller - | vcfutils.pl vcf2fq - > ${bam%.*}_consensus.fq
-seqtk seq -a ${bam%.*}_consensus.fq > ${bam%.*}_consensus.fa
-#rm ${bam%.*}_consensus.fq
+bcftools mpileup --fasta-ref $ref $bam | bcftools call --consensus-caller -Oz -o calls.vcf.gz
+bcftools index calls.vcf.gz
+bcftools consensus --fasta-ref $ref calls.vcf.gz > ${bam%.*}_consensus.fasta
+rm calls.vcf.gz
+
+#bcftools mpileup -Ou --fasta-ref $ref $bam | bcftools call --consensus-caller - | vcfutils.pl vcf2fq - > ${bam%.*}_consensus.fq
+#seqtk seq -a ${bam%.*}_consensus.fq > ${bam%.*}_consensus.fa
+##rm ${bam%.*}_consensus.fq
 
 
 # deactivate software
