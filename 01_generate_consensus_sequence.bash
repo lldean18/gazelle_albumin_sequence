@@ -17,7 +17,7 @@
 # set variables
 wkdir=/gpfs01/home/mbzlld/data/gazelle
 ref=$wkdir/CAKJTW01.fasta
-bam=$wkdir/ERR7570018.bam
+bam=$wkdir/bams/clean_bams/ERR7570036.bam
 
 cd $wkdir
 
