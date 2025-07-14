@@ -11,13 +11,13 @@
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=1
 #SBATCH --mem=10g
-#SBATCH --time=10:00:00
+#SBATCH --time=50:00:00
 #SBATCH --output=/gpfs01/home/mbzlld/code_and_scripts/slurm_out_scripts/slurm-%x-%j.out
 
 # set variables
 wkdir=/gpfs01/home/mbzlld/data/gazelle
 ref=$wkdir/CAKJTW01.fasta
-bam=$wkdir/bams/clean_bams/ERR7570036.bam
+bams=( /gpfs01/home/mbzlld/data/gazelle/bams/clean_bams/*.bam )
 
 cd $wkdir
 
@@ -27,11 +27,13 @@ source $HOME/.bash_profile
 #conda install seqtk -y
 conda activate samtools1.22
 
+for bam in ${bams[@]}; do
 # generate the concensus sequence
 bcftools mpileup --fasta-ref $ref $bam | bcftools call --consensus-caller -Oz -o calls.vcf.gz
 bcftools index calls.vcf.gz
 bcftools consensus --fasta-ref $ref calls.vcf.gz > ${bam%.*}_consensus.fasta
-rm calls.vcf.gz
+rm calls.vcf.gz calls.vcf.gz.csi
+done
 
 #bcftools mpileup -Ou --fasta-ref $ref $bam | bcftools call --consensus-caller - | vcfutils.pl vcf2fq - > ${bam%.*}_consensus.fq
 #seqtk seq -a ${bam%.*}_consensus.fq > ${bam%.*}_consensus.fa
