@@ -1,8 +1,10 @@
 # gazelle_albumin_sequence
 
-Repo for scripts used to determine the protein sequence of Albumin in Gazella cuvieri.
+Repo for scripts used to determine the protein sequence of Albumin in Gazella cuvieri using published illumina short reads downloaded from the ENA.
 
-This genus has no published assemblies or annotations! (whaat!?) so the pipeline involves:
+This genus has no published assemblies or annotations! (whaat!?) so...
+
+## the pipeline involves:
 
 1. Mapping illumina short-read sequencing data to the most closely related available reference genome (Nangar dama).
 
