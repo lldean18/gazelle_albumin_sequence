@@ -3,7 +3,9 @@
 # 16/7/25
 # script written for running on the UoN HPC Ada
 
-# script to generate a concensus sequence from reads aligned to a reference
+# script to predict the exon strucuture of the albumin protein based on albumin sequences from
+# closely related / other species and the DNA sequence of the region containing the gene in
+# Gazella cuvieri
 
 #SBATCH --job-name=predict_exon_structure
 #SBATCH --partition=defq
