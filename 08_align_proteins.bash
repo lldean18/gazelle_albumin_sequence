@@ -3,7 +3,8 @@
 # 18/7/25
 # script written for running on the UoN HPC Ada
 
-# script to process a predicted annotation of a gene to protein sequence
+# script to align the individual gazelle protein sequences and generate a single consensus
+# sequence for the species
 
 #SBATCH --job-name=align_proteins
 #SBATCH --partition=defq
