@@ -3,7 +3,8 @@
 # 16/7/25
 # script written for running on the UoN HPC Ada
 
-# script to generate a concensus sequence from reads aligned to a reference
+# script to extract the region containing the albumin gene from Gazella cuvieri
+# consensus sequences for each individual
 
 #SBATCH --job-name=extract_gene_region
 #SBATCH --partition=defq
