@@ -4,6 +4,8 @@
 # script written for running on the UoN HPC Ada
 
 # script to generate a concensus sequence from reads aligned to a reference
+# this will give a pseudo assembly for Gazella cuvieri based on the reads
+# and the Nangar dama reference assembly
 
 #SBATCH --job-name=generate_consensus
 #SBATCH --partition=defq
