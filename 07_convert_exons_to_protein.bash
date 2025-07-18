@@ -3,7 +3,7 @@
 # 17/7/25
 # script written for running on the UoN HPC Ada
 
-# script to process a predicted annotation of a gene to protein sequence
+# script to concatenate DNA exon sequences and convert them to protein sequences
 
 #SBATCH --job-name=convert_annotation_to_protein
 #SBATCH --partition=defq
