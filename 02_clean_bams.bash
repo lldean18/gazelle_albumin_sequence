@@ -3,6 +3,9 @@
 # 11/7/25
 # script written for running on the UoN HPC Ada
 
+# script to clean and filter bam files
+# files contain Gazella cuvieri reads algned to the Nangar dama reference
+
 #SBATCH --job-name=clean_bams
 #SBATCH --partition=defq
 #SBATCH --nodes=1
