@@ -3,6 +3,10 @@
 # 10/7/25
 # script written for running on the UoN HPC Ada
 
+# script to align raw sequencing reads for Gazella cuvieri (downloaded from ENA)
+# to the Nangar dama reference genome (downloaded from ENA)
+# this is the most closely related available reference genome
+
 #SBATCH --job-name=map_gazelle_reads
 #SBATCH --partition=defq
 #SBATCH --nodes=1
