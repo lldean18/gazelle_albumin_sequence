@@ -38,7 +38,9 @@ bedtools getfasta -fi ${annotation%_*}.fasta -bed ${annotation%.*}_sheep_exons.g
 # === merge exons into single CDS FASTA ===
 # Remove headers, flatten, add new header
 seqkit seq ${annotation%.*}_sheep_exons.fasta | grep -v ">" | tr -d '\n' > cds.tmp
-echo ">Albumin_cds" > ${annotation%_*}_cds.fasta
+ID=$(basename $annotation)  # create variable with the individual ID
+ID=${ID%%_*}  # create variable with the individual ID
+echo ">${ID}_Albumin_cds" > ${annotation%_*}_cds.fasta
 cat cds.tmp >> ${annotation%_*}_cds.fasta
 rm cds.tmp
 # === reverse-complement if minus strand ===
@@ -50,11 +52,11 @@ rm cds.tmp
 # === translate cds to protein ===
 seqkit translate ${annotation%_*}_cds.fasta > ${annotation%_*}_protein.fasta
 
-#rm ${annotation%.*}_sheep.gff
-#rm ${annotation%.*}_sheep_exons.gff
-#rm ${annotation%.*}_sheep_exons.bed
-#rm ${annotation%.*}_sheep_exons_sorted.bed
-#rm ${annotation%.*}_sheep_exons.fasta
+rm ${annotation%.*}_sheep.gff
+rm ${annotation%.*}_sheep_exons.gff
+rm ${annotation%.*}_sheep_exons.fasta
+rm ${annotation%_*}_cds.fasta
+
 done
 
 # deactivate software
