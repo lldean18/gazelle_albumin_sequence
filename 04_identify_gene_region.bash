@@ -3,6 +3,9 @@
 # 14/7/25
 # script written for running on the UoN HPC Ada
 
+# script to identify the region of the Gazella cuvieri genome that contains the
+# albumin gene based on a blast search of closely related protein sequences.
+
 #SBATCH --job-name=identify_gene_region
 #SBATCH --partition=defq
 #SBATCH --nodes=1
