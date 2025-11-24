@@ -22,5 +22,5 @@ This genus has no published assemblies or annotations! (whaat!?) so...
 
 8. Aligning the predicted Albumin protein sequences for each individual and extracting the consensus sequence for the species from the alignment. All individuals were largely the same at this point apart from a few ambiguities in single individuals here and there, and one individual with a chunk that was totally off towards the end. This suggests the process worked well and the final consensus sequence is likey reasonably accurate.
 
-Code written and analysis completed for Rob Layfield UoN.
+Code written and analysis completed for Rob Layfield UoN in 2025.
 
